@@ -23,6 +23,14 @@ class Motherboard {
         return this.#services;
     }
 
+    isGreater(motherboard) {
+        return this.getServices() > motherboard.getServices();
+    }
+
+    isEqual(motherboard) {
+        return this.getServices() === motherboard.getServices();
+    }
+
     validate(config) {
         let valid = true;
         if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {

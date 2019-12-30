@@ -51,4 +51,34 @@ describe('Motherboard', function () {
         let motherboard = new Motherboard(config);
         assert.isUndefined(motherboard.services);
     });
+
+    it('isGreater works as expected', function () {
+        let motherboard = new Motherboard(config);
+
+        let smallerConfig = {
+            'manufacturer': 'Gigabyte',
+            'model': 'S6-320-P',
+            'services': 14
+        };
+        let smallerMotherboard = new Motherboard(smallerConfig);
+        assert.isTrue(motherboard.isGreater(smallerMotherboard));
+
+        assert.isFalse(motherboard.isGreater(motherboard));
+
+        let biggerConfig = {
+            'manufacturer': 'Gigabyte',
+            'model': 'S6-320-P',
+            'services': 16
+        };
+        let biggerMotherboard = new Motherboard(biggerConfig);
+        assert.isFalse(motherboard.isGreater(biggerMotherboard));
+    });
+
+    it('isEqual works as expected', function () {
+        let motherboard1 = new Motherboard(config);
+        let motherboard2 = new Motherboard(config);
+
+        assert.isTrue(motherboard1.isEqual(motherboard2));
+    });
+
 });

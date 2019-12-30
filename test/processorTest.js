@@ -102,4 +102,11 @@ describe('Processor', function () {
         let biggerSpeedProcessor = new Processor(biggerSpeedConfig);
         assert.isFalse(processor.isGreater(biggerSpeedProcessor));
     });
+
+    it('isEqual works as expected', function () {
+        let processor1 = new Processor(config);
+        let processor2 = new Processor(config);
+
+        assert.isTrue(processor1.isEqual(processor2));
+    });
 });

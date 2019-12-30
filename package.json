@@ -1,0 +1,33 @@
+{
+  "name": "eke-rtt-hw",
+  "version": "1.0.0",
+  "description": "EKE-PTI Rendszerek tervezése és tesztelése - beadandó feladat",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcsk/eke-rtt-hw.git"
+  },
+  "keywords": [
+    "node",
+    "mocha",
+    "chai"
+  ],
+  "author": "Tibor Nagy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcsk/eke-rtt-hw/issues"
+  },
+  "homepage": "https://github.com/tcsk/eke-rtt-hw#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}

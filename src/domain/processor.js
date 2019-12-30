@@ -1,19 +1,35 @@
 class Processor {
 
-    manufacturer;
-    model;
-    cores;
-    speed;
+    #manufacturer;
+    #model;
+    #cores;
+    #speed;
 
     constructor(config) {
         this.validate(config);
-        this.manufacturer = config.manufacturer;
-        this.model = config.model;
-        this.cores = config.cores;
-        this.speed = config.speed;
+        this.#manufacturer = config.manufacturer;
+        this.#model = config.model;
+        this.#cores = config.cores;
+        this.#speed = config.speed;
     }
 
-    validate(config) {
+    getManufacturer() {
+        return this.#manufacturer;
+    }
+
+    getModel() {
+        return this.#model;
+    }
+
+    getCores() {
+        return this.#cores;
+    }
+
+    getSpeed() {
+        return this.#speed;
+    }
+
+    validate (config) {
         let valid = true;
         if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {
             valid = false;

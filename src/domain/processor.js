@@ -32,7 +32,11 @@ class Processor {
     isGreater(processor) {
         return this.getSpeed() > processor.getSpeed() ||
             (this.getSpeed() === processor.getSpeed() && this.getCores() > processor.getCores());
+    }
 
+    isEqual(processor) {
+        return this.getSpeed() === processor.getSpeed() &&
+            this.getCores() === processor.getCores();
     }
 
     validate(config) {

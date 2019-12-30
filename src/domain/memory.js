@@ -29,6 +29,16 @@ class Memory {
         return this.#speed;
     }
 
+    isGreater(memory) {
+        return this.getSize() > memory.getSize() ||
+            (this.getSize() === memory.getSize() && this.getSpeed() > memory.getSpeed());
+    }
+
+    isEqual(memory) {
+        return this.getSpeed() === memory.getSpeed() &&
+            this.getSize() === memory.getSize();
+    }
+
     validate(config) {
         let valid = true;
         if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {

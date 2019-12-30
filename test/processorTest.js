@@ -62,4 +62,44 @@ describe('Processor', function () {
         let processor = new Processor(config);
         assert.isUndefined(processor.speed);
     });
+
+    it('isGreater works as expected', function () {
+        let processor = new Processor(config);
+
+        let smallerSpeedConfig = {
+            'manufacturer': 'Intel',
+            'model': 'I3',
+            'cores': 2,
+            'speed': 2.35
+        };
+        let smallerSpeedProcessor = new Processor(smallerSpeedConfig);
+        assert.isTrue(processor.isGreater(smallerSpeedProcessor));
+
+        let smallerCoreConfig = {
+            'manufacturer': 'Intel',
+            'model': 'I3',
+            'cores': 2,
+            'speed': 2.85
+        };
+        let smallerCoreProcessor = new Processor(smallerCoreConfig);
+        assert.isTrue(processor.isGreater(smallerCoreProcessor));
+
+        let biggerCoreConfig = {
+            'manufacturer': 'Intel',
+            'model': 'I3',
+            'cores': 5,
+            'speed': 2.85
+        };
+        let biggerCoreProcessor = new Processor(biggerCoreConfig);
+        assert.isFalse(processor.isGreater(biggerCoreProcessor));
+
+        let biggerSpeedConfig = {
+            'manufacturer': 'Intel',
+            'model': 'I3',
+            'cores': 2,
+            'speed': 3.85
+        };
+        let biggerSpeedProcessor = new Processor(biggerSpeedConfig);
+        assert.isFalse(processor.isGreater(biggerSpeedProcessor));
+    });
 });

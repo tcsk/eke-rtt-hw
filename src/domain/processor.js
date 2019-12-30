@@ -29,7 +29,13 @@ class Processor {
         return this.#speed;
     }
 
-    validate (config) {
+    isGreater(processor) {
+        return this.getSpeed() > processor.getSpeed() ||
+            (this.getSpeed() === processor.getSpeed() && this.getCores() > processor.getCores());
+
+    }
+
+    validate(config) {
         let valid = true;
         if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {
             valid = false;

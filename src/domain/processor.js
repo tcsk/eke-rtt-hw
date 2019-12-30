@@ -44,7 +44,7 @@ class Processor {
         if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {
             valid = false;
         }
-        if (typeof config.model !== 'string' || config.manufacturer.model < 1) {
+        if (typeof config.model !== 'string' || config.model.length < 1) {
             valid = false;
         }
         if (typeof config.cores !== 'number' || config.cores < 1) {

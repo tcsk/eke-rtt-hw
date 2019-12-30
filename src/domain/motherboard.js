@@ -11,6 +11,18 @@ class Motherboard {
         this.#services = config.services;
     }
 
+    getManufacturer() {
+        return this.#manufacturer;
+    }
+
+    getModel() {
+        return this.#model;
+    }
+
+    getServices() {
+        return this.#services;
+    }
+
     validate(config) {
         let valid = true;
         if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {

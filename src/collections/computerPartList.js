@@ -1,5 +1,3 @@
-const ComputerPart = require('../domain/computerPart');
-
 class ComputerPartList {
 
     #list;
@@ -19,6 +17,19 @@ class ComputerPartList {
 
     count() {
         return this.#list.length;
+    }
+
+    getOptimalUnderPrice(price) {
+        let optimal = 0;
+        let self = this;
+
+        this.#list.forEach(function (i, e) {
+            if(e.price <= price &&  e.part.isGreater(self.#list[optimal].part)) {
+                optimal = i;
+            }
+        });
+
+        return optimal;
     }
 
     validate(price) {

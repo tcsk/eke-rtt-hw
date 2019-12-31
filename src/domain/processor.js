@@ -1,4 +1,6 @@
-class Processor {
+const ComputerPart = require('./computerPart');
+
+class Processor extends ComputerPart {
 
     #manufacturer;
     #model;
@@ -6,6 +8,7 @@ class Processor {
     #speed;
 
     constructor(config) {
+        super();
         this.validate(config);
         this.#manufacturer = config.manufacturer;
         this.#model = config.model;

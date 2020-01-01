@@ -23,7 +23,7 @@ describe('MemoryList', function () {
             'memory is not a valid Memory');
     });
 
-    it('add should validate processor price', function () {
+    it('add should validate memory price', function () {
         let memoryList = new MemoryList();
         let memory = new Memory({
             'manufacturer': 'Kingston',

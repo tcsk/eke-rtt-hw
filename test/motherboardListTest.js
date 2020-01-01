@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const MotherboardList = require('../src/collections/MotherboardList');
-const ComputerPartList = require('../src/collections/ComputerPartList');
+const MotherboardList = require('../src/collection/MotherboardList');
+const ComputerPartList = require('../src/collection/ComputerPartList');
 const Motherboard = require('../src/domain/Motherboard');
 
 describe('MotherboardList', function () {

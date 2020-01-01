@@ -6,14 +6,21 @@ const ComputerPart = require('../src/domain/ComputerPart');
 
 describe('ComputerPartList', function () {
 
-    it('ComputerPartList should bi instantiated', function () {
+    it('ComputerPartList should be instantiated', function () {
         let computerPartList = new ComputerPartList();
         assert.instanceOf(computerPartList, ComputerPartList);
     });
 
-    it('add should validate price argument', function () {
+    it('add should validate computerPart argument', function () {
         let computerPartList = new ComputerPartList();
         let computerPart = {};
+        expect(() => computerPartList.add(computerPart, 2500)).to.throw(
+            'computerPart is not a valid ComputerPart');
+    });
+
+    it('add should validate price argument', function () {
+        let computerPartList = new ComputerPartList();
+        let computerPart = new ComputerPart();
         expect(() => computerPartList.add(computerPart, 'abc')).to.throw(
             'Price is not a valid number');
     });
@@ -27,7 +34,7 @@ describe('ComputerPartList', function () {
 
     it('count returns 1 after add', function () {
         let computerPartList = new ComputerPartList();
-        let computerPart = {};
+        let computerPart = new ComputerPart();
         computerPartList.add(computerPart, 2500);
         let expected = 1;
         let actual = computerPartList.count();

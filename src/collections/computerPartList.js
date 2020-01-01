@@ -1,3 +1,5 @@
+const ComputerPart = require('../domain/ComputerPart');
+
 class ComputerPartList {
 
     #list;
@@ -7,7 +9,7 @@ class ComputerPartList {
     }
 
     add(computerPart, price) {
-        this.validate(price);
+        this.validate(computerPart, price);
         let obj = {
             price: price,
             part: computerPart
@@ -32,7 +34,10 @@ class ComputerPartList {
         return optimal;
     }
 
-    validate(price) {
+    validate(computerPart, price) {
+        if(!(computerPart instanceof ComputerPart)){
+            throw ('computerPart is not a valid ComputerPart');
+        }
         if(typeof price !== 'number' || price < 1) {
             throw ('Price is not a valid number');
         }

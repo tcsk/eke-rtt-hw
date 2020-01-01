@@ -44,39 +44,41 @@ describe('ComputerPartList', function () {
     it('getOptimalUnderPrice returns index 0 when first element is the optimal',
         function () {
             let computerPartList = new ComputerPartList();
-            let computerPart1 = new ComputerPart();
-            let computerPart2 = new ComputerPart();
+            let computerPart = new ComputerPart();
 
-            sinon.stub(computerPart1, 'isGreater').returns(true);
-            computerPartList.add(computerPart1, 2500);
-            sinon.stub(computerPart2, 'isGreater').returns(false);
-            computerPartList.add(computerPart2, 2500);
+            let isGreaterStub =  sinon.stub(computerPart, 'isGreater');
+            isGreaterStub.onCall(0).returns(true);
+            isGreaterStub.returns(false);
 
+            computerPartList.add(computerPart, 2500);
+            computerPartList.add(computerPart, 2500);
 
             let actual = computerPartList.getOptimalUnderPrice(3000);
             let expected = 0;
-
             assert.equal(actual, expected);
+
+            isGreaterStub.restore();
         });
 
     it('getOptimalUnderPrice returns index 1 when second element is the optimal',
         function () {
             let computerPartList = new ComputerPartList();
-            let computerPart1 = new ComputerPart();
-            let computerPart2 = new ComputerPart();
-            let computerPart3 = new ComputerPart();
+            let computerPart = new ComputerPart();
 
-            sinon.stub(computerPart1, 'isGreater').returns(false);
-            computerPartList.add(computerPart1, 2500);
-            sinon.stub(computerPart2, 'isGreater').returns(true);
-            computerPartList.add(computerPart2, 2500);
-            sinon.stub(computerPart3, 'isGreater').returns(false);
-            computerPartList.add(computerPart3, 2500);
+            let isGreaterStub =  sinon.stub(computerPart, 'isGreater');
+            isGreaterStub.onCall(0).returns(false);
+            isGreaterStub.onCall(1).returns(true);
+            isGreaterStub.returns(false);
+
+            computerPartList.add(computerPart, 2500);
+            computerPartList.add(computerPart, 2500);
+            computerPartList.add(computerPart, 2500);
 
             let actual = computerPartList.getOptimalUnderPrice(3000);
             let expected = 1;
-
             assert.equal(actual, expected);
+
+            isGreaterStub.restore();
         });
 
     it('getOptimalUnderPrice returns null if collection is empty',
@@ -92,18 +94,19 @@ describe('ComputerPartList', function () {
     it('getOptimalUnderPrice returns null if all element is overpriced',
         function () {
             let computerPartList = new ComputerPartList();
+            let computerPart = new ComputerPart();
 
-            let computerPart1 = new ComputerPart();
-            let computerPart2 = new ComputerPart();
+            let isGreaterStub =  sinon.stub(computerPart, 'isGreater');
+            isGreaterStub.onCall(0).returns(true);
+            isGreaterStub.returns(false);
 
-            sinon.stub(computerPart1, 'isGreater').returns(true);
-            computerPartList.add(computerPart1, 3500);
-            sinon.stub(computerPart2, 'isGreater').returns(false);
-            computerPartList.add(computerPart2, 3500);
+            computerPartList.add(computerPart, 2500);
+            computerPartList.add(computerPart, 2500);
 
             let actual = computerPartList.getOptimalUnderPrice(3000);
             let expected = null;
-
             assert.equal(actual, expected);
+
+            isGreaterStub.restore();
         });
 });

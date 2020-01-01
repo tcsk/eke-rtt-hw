@@ -1,6 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 const Memory = require('../src/domain/memory');
+const ComputerPart = require('../src/domain/computerPart');
 
 const config = {
     'manufacturer': 'Kingston',
@@ -14,6 +15,11 @@ describe('Memory', function () {
     it('Constructor should accept config object', function () {
         let memory = new Memory(config);
         assert.instanceOf(memory, Memory);
+    });
+
+    it('Memory is instance of ComputerPart', function () {
+        let memory = new Memory(config);
+        assert.instanceOf(memory, ComputerPart);
     });
 
     it('Constructor should throw exception when invalid config object is passed', function(){

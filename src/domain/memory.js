@@ -1,4 +1,6 @@
-class Memory {
+const ComputerPart = require('./computerPart');
+
+class Memory extends ComputerPart {
 
     #manufacturer;
     #model;
@@ -6,6 +8,7 @@ class Memory {
     #speed;
 
     constructor(config) {
+        super();
         this.validate(config);
         this.#manufacturer = config.manufacturer;
         this.#model = config.model;

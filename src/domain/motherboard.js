@@ -1,10 +1,13 @@
-class Motherboard {
+const ComputerPart = require('./computerPart');
+
+class Motherboard extends ComputerPart {
 
     #manufacturer;
     #model;
     #services;
 
     constructor(config) {
+        super();
         this.validate(config);
         this.#manufacturer = config.manufacturer;
         this.#model = config.model;

@@ -20,11 +20,12 @@ class ComputerPartList {
     }
 
     getOptimalUnderPrice(price) {
-        let optimal = 0;
+        let optimal = null;
         let self = this;
 
-        this.#list.forEach(function (i, e) {
-            if(e.price <= price &&  e.part.isGreater(self.#list[optimal].part)) {
+        this.#list.forEach(function (e, i) {
+            let index = optimal || 0;
+            if(e.price <= price &&  e.part.isGreater(self.#list[index].part)) {
                 optimal = i;
             }
         });

@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const MemoryList = require('../src/collections/MemoryList');
-const ComputerPartList = require('../src/collections/ComputerPartList');
+const MemoryList = require('../src/collection/MemoryList');
+const ComputerPartList = require('../src/collection/ComputerPartList');
 const Memory = require('../src/domain/Memory');
 
 describe('MemoryList', function () {

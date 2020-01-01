@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const ComputerPartList = require('../src/collections/ComputerPartList');
+const ComputerPartList = require('../src/collection/ComputerPartList');
 const ComputerPart = require('../src/domain/ComputerPart');
 
 describe('ComputerPartList', function () {
@@ -103,7 +103,7 @@ describe('ComputerPartList', function () {
             computerPartList.add(computerPart, 2500);
             computerPartList.add(computerPart, 2500);
 
-            let actual = computerPartList.getOptimalUnderPrice(3000);
+            let actual = computerPartList.getOptimalUnderPrice(1000);
             let expected = null;
             assert.equal(actual, expected);
 

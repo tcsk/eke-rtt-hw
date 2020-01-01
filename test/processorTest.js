@@ -34,19 +34,9 @@ describe('Processor', function () {
         assert.equal(processor.getManufacturer(), config.manufacturer);
     });
 
-    it('manufacturer should be undefined', function () {
-        let processor = new Processor(config);
-        assert.isUndefined(processor.manufacturer);
-    });
-
     it('getModel should return correct value', function () {
         let processor = new Processor(config);
         assert.equal(processor.getModel(), config.model);
-    });
-
-    it('model should be undefined', function () {
-        let processor = new Processor(config);
-        assert.isUndefined(processor.model);
     });
 
     it('getCores should return correct value', function () {
@@ -54,19 +44,9 @@ describe('Processor', function () {
         assert.equal(processor.getCores(), config.cores);
     });
 
-    it('cores should be undefined', function () {
-        let processor = new Processor(config);
-        assert.isUndefined(processor.cores);
-    });
-
     it('getSpeed should return correct value', function () {
         let processor = new Processor(config);
         assert.equal(processor.getSpeed(), config.speed);
-    });
-
-    it('speed should be undefined', function () {
-        let processor = new Processor(config);
-        assert.isUndefined(processor.speed);
     });
 
     it('isGreater works as expected', function () {

@@ -33,29 +33,14 @@ describe('Motherboard', function () {
         assert.equal(motherboard.getManufacturer(), config.manufacturer);
     });
 
-    it('manufacturer should be undefined', function () {
-        let motherboard = new Motherboard(config);
-        assert.isUndefined(motherboard.manufacturer);
-    });
-
     it('getModel should return correct value', function () {
         let motherboard = new Motherboard(config);
         assert.equal(motherboard.getModel(), config.model);
     });
 
-    it('model should be undefined', function () {
-        let motherboard = new Motherboard(config);
-        assert.isUndefined(motherboard.model);
-    });
-
     it('getSize should return correct value', function () {
         let motherboard = new Motherboard(config);
         assert.equal(motherboard.getServices(), config.services);
-    });
-
-    it('size should be undefined', function () {
-        let motherboard = new Motherboard(config);
-        assert.isUndefined(motherboard.services);
     });
 
     it('isGreater works as expected', function () {

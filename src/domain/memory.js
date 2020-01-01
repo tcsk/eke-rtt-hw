@@ -2,34 +2,34 @@ const ComputerPart = require('./computerPart');
 
 class Memory extends ComputerPart {
 
-    #manufacturer;
-    #model;
-    #size;
-    #speed;
+    manufacturer;
+    model;
+    size;
+    speed;
 
     constructor(config) {
         super();
         this.validate(config);
-        this.#manufacturer = config.manufacturer;
-        this.#model = config.model;
-        this.#size = config.size;
-        this.#speed = config.speed;
+        this.manufacturer = config.manufacturer;
+        this.model = config.model;
+        this.size = config.size;
+        this.speed = config.speed;
     }
 
     getManufacturer() {
-        return this.#manufacturer;
+        return this.manufacturer;
     }
 
     getModel() {
-        return this.#model;
+        return this.model;
     }
 
     getSize() {
-        return this.#size;
+        return this.size;
     }
 
     getSpeed() {
-        return this.#speed;
+        return this.speed;
     }
 
     isGreater(memory) {
@@ -43,13 +43,7 @@ class Memory extends ComputerPart {
     }
 
     validate(config) {
-        let valid = true;
-        if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {
-            valid = false;
-        }
-        if (typeof config.model !== 'string' || config.model.length < 1) {
-            valid = false;
-        }
+        let valid = super.validate(config);
         if (typeof config.size !== 'number' || config.size < 1) {
             valid = false;
         }

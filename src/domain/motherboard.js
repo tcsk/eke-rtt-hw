@@ -2,28 +2,28 @@ const ComputerPart = require('./computerPart');
 
 class Motherboard extends ComputerPart {
 
-    #manufacturer;
-    #model;
-    #services;
+    manufacturer;
+    model;
+    services;
 
     constructor(config) {
         super();
         this.validate(config);
-        this.#manufacturer = config.manufacturer;
-        this.#model = config.model;
-        this.#services = config.services;
+        this.manufacturer = config.manufacturer;
+        this.model = config.model;
+        this.services = config.services;
     }
 
     getManufacturer() {
-        return this.#manufacturer;
+        return this.manufacturer;
     }
 
     getModel() {
-        return this.#model;
+        return this.model;
     }
 
     getServices() {
-        return this.#services;
+        return this.services;
     }
 
     isGreater(motherboard) {
@@ -35,13 +35,7 @@ class Motherboard extends ComputerPart {
     }
 
     validate(config) {
-        let valid = true;
-        if (typeof config.manufacturer !== 'string' || config.manufacturer.length < 1) {
-            valid = false;
-        }
-        if (typeof config.model !== 'string' || config.model.length < 1) {
-            valid = false;
-        }
+        let valid = super.validate(config);
         if (typeof config.services !== 'number' || config.services < 1) {
             valid = false;
         }

@@ -2,10 +2,10 @@ const ComputerPart = require('../domain/ComputerPart');
 
 class ComputerPartList {
 
-    #list;
+    list;
 
     constructor() {
-        this.#list = [];
+        this.list = [];
     }
 
     add(computerPart, price) {
@@ -14,19 +14,19 @@ class ComputerPartList {
             price: price,
             part: computerPart
         };
-        this.#list.push(obj);
+        this.list.push(obj);
     }
 
     count() {
-        return this.#list.length;
+        return this.list.length;
     }
 
     getOptimalUnderPrice(price) {
         let optimal = null;
 
-        this.#list.forEach(function (e, i) {
+        this.list.forEach(function (e, i) {
             let index = optimal || 0;
-            if(e.price <= price &&  e.part.isGreater(this.#list[index].part)) {
+            if(e.price <= price &&  e.part.isGreater(this.list[index].part)) {
                 optimal = i;
             }
         }.bind(this));

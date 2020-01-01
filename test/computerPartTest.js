@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const ComputerPart = require('../src/domain/computerPart');
+const ComputerPart = require('../src/domain/ComputerPart');
 const computerPart = new ComputerPart();
 
 describe('ComputerPart', function () {

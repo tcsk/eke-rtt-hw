@@ -1,4 +1,4 @@
-const ComputerPart = require('./computerPart');
+const ComputerPart = require('./ComputerPart');
 
 class Motherboard extends ComputerPart {
 

@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const Motherboard = require('../src/domain/motherboard');
-const ComputerPart = require('../src/domain/computerPart');
+const Motherboard = require('../src/domain/Motherboard');
+const ComputerPart = require('../src/domain/ComputerPart');
 
 const config = {
     'manufacturer': 'Gigabyte',

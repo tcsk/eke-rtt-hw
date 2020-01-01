@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const Memory = require('../src/domain/memory');
-const ComputerPart = require('../src/domain/computerPart');
+const Memory = require('../src/domain/Memory');
+const ComputerPart = require('../src/domain/ComputerPart');
 
 const config = {
     'manufacturer': 'Kingston',

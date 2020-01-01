@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const Processor = require('../src/domain/processor');
-const ComputerPart = require('../src/domain/computerPart');
+const Processor = require('../src/domain/Processor');
+const ComputerPart = require('../src/domain/ComputerPart');
 
 const config = {
     'manufacturer': 'Intel',

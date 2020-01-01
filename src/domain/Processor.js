@@ -1,10 +1,10 @@
-const ComputerPart = require('./computerPart');
+const ComputerPart = require('./ComputerPart');
 
-class Memory extends ComputerPart {
+class Processor extends ComputerPart {
 
     manufacturer;
     model;
-    size;
+    cores;
     speed;
 
     constructor(config) {
@@ -12,7 +12,7 @@ class Memory extends ComputerPart {
         this.validate(config);
         this.manufacturer = config.manufacturer;
         this.model = config.model;
-        this.size = config.size;
+        this.cores = config.cores;
         this.speed = config.speed;
     }
 
@@ -24,36 +24,36 @@ class Memory extends ComputerPart {
         return this.model;
     }
 
-    getSize() {
-        return this.size;
+    getCores() {
+        return this.cores;
     }
 
     getSpeed() {
         return this.speed;
     }
 
-    isGreater(memory) {
-        return this.getSize() > memory.getSize() ||
-            (this.getSize() === memory.getSize() && this.getSpeed() > memory.getSpeed());
+    isGreater(processor) {
+        return this.getSpeed() > processor.getSpeed() ||
+            (this.getSpeed() === processor.getSpeed() && this.getCores() > processor.getCores());
     }
 
-    isEqual(memory) {
-        return this.getSpeed() === memory.getSpeed() &&
-            this.getSize() === memory.getSize();
+    isEqual(processor) {
+        return this.getSpeed() === processor.getSpeed() &&
+            this.getCores() === processor.getCores();
     }
 
     validate(config) {
         let valid = super.validate(config);
-        if (typeof config.size !== 'number' || config.size < 1) {
+        if (typeof config.cores !== 'number' || config.cores < 1) {
             valid = false;
         }
         if (typeof config.speed !== 'number' || config.speed < 1) {
             valid = false;
         }
         if (!valid) {
-            throw('Invalid Memory configuration');
+            throw('Invalid Processor configuration');
         }
     }
 }
 
-module.exports = Memory;
+module.exports = Processor;
